@@ -1,85 +1,104 @@
+
 # YouTube Video Downloader
 
-The objective of this project is to download any type of video in a fast and easy way from youtube in your device.
+A Python desktop application built with Tkinter that provides a simple graphical interface for downloading YouTube videos.
 
-In this, user has to copy the youtube video URL that they want to download and simply paste that URL in the ‘paste link here’ section and click on the download button, it will start downloading the video. When video downloading finishes, it shows a message ‘downloaded’ popup on the window below the download button.
+## Features
 
-</br>
+- Simple and easy-to-use graphical interface.
+- Supports common YouTube video URL formats.
+- Validates URLs before starting a download.
+- Downloads progressive MP4 video streams.
+- Displays download progress.
+- Shows success and error messages.
+- Saves downloaded videos in a dedicated `downloads` folder.
+- Includes automated tests using pytest.
+
+## Tech Stack
+
+- Python 3.11+
+- Tkinter
+- pytube
+- pytest
+
+## Project Structure
+
+```text
+YouTube-Video-Downloader/
+├── youtube_vid_dl.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── tests/
+    └── test_youtube_vid_dl.py
+```
 
 ## Prerequisites
 
-To implement this, we use basic concept of python, tkinter and pytube library.
+- Python 3.11 or newer
+- pip
 
-- **Tkinter** is a standard GUI library and it is one of the easiest ways to build a GUI application.
-- **pytube** used for downloading videos from youtube
+Tkinter is included with many standard Python installations.
 
-</br>
+## Installation
 
-To install the required modules run pip installer command on the command line:
+### 1. Clone the repository
 
+```powershell
+git clone https://github.com/RaavanHrishi07/YouTube-Video-Downloader.git
+cd YouTube-Video-Downloader
 ```
-pip install tkinter
-pip install pytube
+
+### 2. Create a virtual environment
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 ```
 
-</br>
+### 3. Install dependencies
 
-These are the following steps to build:
+```powershell
+python -m pip install -r requirements.txt
+```
 
-</br>
+## Run the Application
 
-### Step 1: Import libraries
+Start the graphical interface with:
 
-Start the project by importing the required modules.
+```powershell
+python .\youtube_vid_dl.py
+```
 
-In this script implementation, we import Tkinter and pytube modules.
+Paste a supported YouTube video URL into the input field and click **DOWNLOAD**. Downloaded files are saved in the `downloads` directory.
 
-</br>
+## Run Tests
 
-### Step 2: Create display window
+Run the automated test suite from the project root:
 
-- **Tk()** used to initialize tkinter to create display window
-- **geometry()** used to set the window’s width and height
-- **resizable(0,0)** set the fix size of window
-- **title()** used to give the title of window
-- **Label()** widget use to display text that users can’t able to modify.
-- **root** is the name of the window
-- **text** which we display the title of the label
-- **font** in which our text is written
-- **pack** organized widget in block
+```powershell
+python -m pytest -v
+```
 
-</br>
+The tests cover supported URL formats, invalid URLs, and URLs with surrounding whitespace.
 
-### Step 3: Create field to enter link
+## Limitations
 
-- **link** is a string type variable that stores the youtube video link that the user enters.
-- **Entry()** widget is used when we want to create an input text field.
-- **width** sets the width of entry widget
-- **textvariable** used to retrieve the value of current text variable to the entry widget
-- **place()** use to place the widget at a specific position
+- Download availability depends on the source video, network connection, and `pytube` compatibility.
+- The application currently selects a progressive MP4 stream, which may limit available video resolutions.
+- URL validation checks the URL format; it does not guarantee that a video exists or is accessible.
 
-</br>
+## Responsible Use
 
-### Step 4: Create function to start downloading
+Only download content you own or are authorised to download. Follow applicable copyright laws and YouTube's terms.
 
-`url` variable gets the youtube link from the link variable by **get()** function and then **str()** will convert the link in string datatype.
+## Author
 
-The video is downloaded in the first present stream of that video by **stream.first()** method.
+**Hrishikesh Sharma**
 
-**Button()** widget used to display button on the window.
+- GitHub: [@RaavanHrishi07](https://github.com/RaavanHrishi07)
+- Repository: [YouTube Video Downloader](https://github.com/RaavanHrishi07/YouTube-Video-Downloader)
 
-- **text** which we display on the label
-- **font** in which the text is written
-- **bg** sets the background color
-- **command** is used to call the function
+## License
 
-**root.mainloop()** is a method that executes when we want to run the program.
-
-</br>
-
-### Output
-
-After running this script, you will be able to see this:
-
-</br>
-
+This project is licensed under the MIT License. See the `LICENSE` file for details.
